@@ -1,4 +1,4 @@
-import React from "react";
+import style from './List.module.scss';
 
 function List() {
   const tarefas = [
@@ -17,14 +17,14 @@ function List() {
   ]
 
   return (
-    <aside>
-      <h2> Estudos do dia </h2>
-      <ul>
+    <aside className={style.listaTarefas}>
+      <h2 className={style.h2}> Estudos do dia </h2>
+      <ul className={style.ul}>
        {
         tarefas.map((tarefa, index)=>(
-          <li key={index}>
-            <h3>{tarefa.tarefa}</h3>
-            <span>{tarefa.tempo}</span>
+          <li className={style.item} key={index}>
+            <h3 className={style.h3}>{tarefa.tarefa}</h3>
+            <span className={style.span}>{tarefa.tempo}</span>
           </li>
         )) 
        }
