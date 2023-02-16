@@ -30,7 +30,9 @@ class Form extends Component {
             className={style.input}
           />
         </div>
-        <Button />
+        <Button>
+          Adicionar
+        </Button>
       </form>
     )
   }
