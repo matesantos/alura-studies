@@ -1,9 +1,12 @@
-import React, { Component, FormEvent } from "react";
+import React, { Component, FormEvent, Dispatch, SetStateAction } from "react";
+import { ITarefa } from "../../types/tarefa";
 import Button from "../Button";
 
 import style from './Form.module.scss';
 
-class Form extends Component {
+class Form extends Component<{
+  setTarefas: Dispatch<SetStateAction<ITarefa[]>>
+}> {
 
   state = {
     tarefa: "",
@@ -12,7 +15,11 @@ class Form extends Component {
 
   addTask(event: FormEvent<HTMLFormElement>){
     event.preventDefault();
-    console.log(this.state)
+    this.props.setTarefas(tarefasAntigas =>[...tarefasAntigas, { ...this.state }] );
+    this.setState({
+      tarefa: "",
+      tempo:'00:00'
+    })
   }
 
   render(): React.ReactNode {
@@ -45,7 +52,7 @@ class Form extends Component {
             className={style.input}
           />
         </div>
-        <Button>
+        <Button type="submit">
           Adicionar
         </Button>
       </form>
