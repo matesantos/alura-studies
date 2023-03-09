@@ -3,11 +3,9 @@ import { Chronometer } from "../components/Chronometer";
 import Form from "../components/Form";
 import List from "../components/List";
 import { ITarefa } from '../types/tarefa';
-
 import style from './App.module.scss';
 
 function App() {
-
   const [tarefas, setTarefas] = useState<ITarefa[]>([]);
   const [selecionado, setSelecionado] = useState<ITarefa>();
 
@@ -22,8 +20,8 @@ function App() {
   return (
     <div className={style.AppStyle}>
       <Form setTarefas={setTarefas} />
-      <List tarefas={tarefas} selecionaTarefa = {selecionaTarefa} />
-      <Chronometer />
+      <List tarefas = {tarefas} selecionaTarefa = {selecionaTarefa} />
+      <Chronometer selecionado={selecionado} />
     </div>
   );
 }
