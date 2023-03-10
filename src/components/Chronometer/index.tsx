@@ -7,9 +7,10 @@ import { ITarefa } from '../../types/tarefa';
 
 interface Props {
   selecionado: ITarefa | undefined,
+  finalizarTarefa: () => void
 }
 
-export function Chronometer({ selecionado }: Props) {
+export function Chronometer({ selecionado, finalizarTarefa }: Props) {
   const [tempo, setTempo] = useState<number>();
 
   useEffect(()=> {
@@ -22,6 +23,7 @@ export function Chronometer({ selecionado }: Props) {
         setTempo(contador - 1);
         regressiva(contador - 1);
       }
+      finalizarTarefa();
     }, 1000)
   }
   
